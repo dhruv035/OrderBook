@@ -4,7 +4,7 @@ module orderbook::my_module {
     use sui::object::{Self, UID};
     use sui::tx_context::{Self, TxContext};
     use sui::transfer;
-    use sui::Vector;
+    use sui::vector;
 
 
     struct Order has key, store {
@@ -31,8 +31,9 @@ module orderbook::my_module {
             getAmount:quoteVal,
             owner: tx_context::sender(ctx),
         )
+        vector::push_back<Order>(OrderBook, order<Order>)
     }
     public fun trade<X,Y>(offer: Coin<X>, ctx &mut TxContext, orderId: UID):Coin<Y> {
-        assert
+        assert!(coin::value)
     }
 }
